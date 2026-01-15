@@ -4,6 +4,7 @@ import "./globals.css";
 import Link from "next/link";
 import { CartProvider } from "@/lib/cart-context";
 import { CartIndicator } from "@/components/cart-indicator";
+import { NavDropdown } from "@/components/nav-dropdown";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,17 +32,28 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
       >
         <CartProvider>
-          <header className="border-b border-gray-200">
+          {/* Premium Sticky Header */}
+          <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
             <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16 h-16 flex items-center justify-between">
+              {/* Logo - Left */}
               <Link
                 href="/"
-                className="text-lg font-semibold tracking-tight text-gray-900 hover:text-blue-700 transition-colors"
+                className="group flex items-center gap-2"
               >
-                FurniZan
+                <span className="text-xl font-bold tracking-tight text-gray-900 transition-colors group-hover:text-blue-600 sm:text-2xl">
+                  FurniZan
+                </span>
               </Link>
-              <CartIndicator />
+              
+              {/* Navigation Dropdown + Cart - Right */}
+              <div className="flex items-center gap-3">
+                <NavDropdown />
+                <CartIndicator />
+              </div>
             </div>
           </header>
+          {/* Spacer for fixed header */}
+          <div className="h-16" />
           {children}
         </CartProvider>
       </body>

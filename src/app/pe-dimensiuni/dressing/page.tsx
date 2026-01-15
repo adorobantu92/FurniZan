@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 export default function DressingPage() {
   const [formData, setFormData] = useState({
@@ -25,40 +26,46 @@ export default function DressingPage() {
 
   return (
     <main className="min-h-screen bg-stone-50 text-gray-900">
+      {/* HERO with Image */}
+      <section className="relative flex min-h-[50vh] flex-col justify-center sm:min-h-[55vh]">
+        <Image
+          src="https://images.unsplash.com/photo-1558997519-83ea9252edf8?w=1920&q=80"
+          alt="Custom wardrobe interior"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/85 via-gray-900/60 to-gray-900/30" />
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16 text-white">
+          <h1 className="mb-4 max-w-3xl text-3xl font-extrabold leading-[1.1] tracking-tight !text-white sm:mb-5 sm:text-4xl md:text-5xl lg:text-6xl">
+            Dressing pe dimensiuni
+          </h1>
+          <p className="mb-6 max-w-xl text-base leading-relaxed !text-gray-100 sm:mb-8 sm:text-lg md:text-xl">
+            Spațiu de depozitare care se potrivește exact în nișa ta. Tu măsori, noi producem, tu montezi.
+          </p>
+          <a
+            href="/masuratori"
+            className="inline-block bg-blue-600 px-7 py-3 text-sm font-bold !text-white transition-colors hover:bg-blue-500 sm:px-8 sm:py-3.5 sm:text-base"
+          >
+            Vezi cum se măsoară corect
+          </a>
+        </div>
+      </section>
+
       <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16">
-        {/* HERO */}
-        <section className="flex min-h-[50vh] flex-col justify-center py-12 sm:min-h-[60vh] sm:py-16 md:py-20">
-          <div className="border-l-2 border-gray-900 pl-6 sm:pl-8 md:pl-10">
-            <h1 className="mb-5 max-w-3xl text-4xl font-extrabold leading-[1.1] tracking-tight sm:mb-6 md:mb-8 md:text-5xl lg:text-6xl">
-              Dressing pe dimensiuni
-            </h1>
-            <p className="mb-8 max-w-xl text-lg leading-relaxed text-gray-600 sm:mb-10 md:mb-14 md:text-xl lg:text-2xl">
-              Spațiu de depozitare care se potrivește exact în nișa ta. Tu măsori, noi producem, tu montezi.
-            </p>
-            <a
-              href="/masuratori"
-              className="inline-block bg-blue-600 px-8 py-3 text-base font-bold text-white transition-colors hover:bg-blue-700 sm:px-10 sm:py-4 sm:text-lg"
-            >
-              Vezi cum se măsoară corect
-            </a>
-          </div>
-        </section>
-
-        <hr className="border-gray-300" />
-
         {/* PENTRU CINE ESTE */}
-        <section className="py-12 sm:py-16 md:py-24">
-          <div className="border-l-2 border-gray-300 pl-6 sm:pl-8 md:pl-10">
-            <h2 className="mb-6 text-2xl font-bold sm:mb-8 md:mb-10 md:text-3xl lg:text-4xl">
+        <section className="py-10 sm:py-12 md:py-16">
+          <div className="border-l-2 border-gray-300 pl-6 sm:pl-8">
+            <h2 className="mb-5 text-xl font-bold sm:mb-6 md:text-2xl lg:text-3xl">
               Pentru cine funcționează
             </h2>
-            <ul className="mb-8 space-y-1 text-base text-gray-600 sm:mb-10 sm:space-y-2 md:mb-12 md:text-lg lg:text-xl">
-              <li className="py-1 sm:py-2">Nișe sub scări sau în mansarde</li>
-              <li className="py-1 sm:py-2">Spații înguste sau cu tavane înclinate</li>
-              <li className="py-1 sm:py-2">Camere cu dimensiuni atipice</li>
-              <li className="py-1 sm:py-2">Oameni care vor să folosească fiecare centimetru</li>
+            <ul className="mb-5 space-y-1 text-base text-gray-600 sm:space-y-2 md:text-lg">
+              <li className="py-1">Nișe sub scări sau în mansarde</li>
+              <li className="py-1">Spații înguste sau cu tavane înclinate</li>
+              <li className="py-1">Camere cu dimensiuni atipice</li>
+              <li className="py-1">Oameni care vor să folosească fiecare centimetru</li>
             </ul>
-            <p className="max-w-lg text-sm text-gray-500 sm:text-base">
+            <p className="max-w-lg text-sm text-gray-500">
               Nu este potrivit pentru cei care vor montaj profesionist inclus sau consultanță de organizare.
             </p>
           </div>
@@ -67,78 +74,86 @@ export default function DressingPage() {
         <hr className="border-gray-300" />
 
         {/* CE POȚI PERSONALIZA */}
-        <section className="py-12 sm:py-16 md:py-24">
-          <div className="mb-8 border-l-2 border-gray-300 pl-6 sm:mb-10 sm:pl-8 md:mb-14 md:pl-10">
-            <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">
+        <section className="py-10 sm:py-12 md:py-16">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-xl font-bold md:text-2xl lg:text-3xl">
               Ce poți personaliza
             </h2>
           </div>
           <div className="grid grid-cols-1 gap-0 md:grid-cols-2">
-            <div className="border-l-2 border-gray-300 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Lățime și înălțime</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
+            <div className="border-l-2 border-gray-300 py-3 pl-6 sm:py-4 sm:pl-8">
+              <h3 className="mb-1 text-base font-bold md:text-lg">Lățime și înălțime</h3>
+              <p className="text-sm text-gray-500">
                 Fiecare modul poate avea dimensiuni diferite, adaptate spațiului tău.
               </p>
             </div>
-            <div className="border-l-2 border-gray-300 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Adâncime</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
+            <div className="border-l-2 border-gray-300 py-3 pl-6 sm:py-4 sm:pl-8">
+              <h3 className="mb-1 text-base font-bold md:text-lg">Adâncime</h3>
+              <p className="text-sm text-gray-500">
                 De la 40 cm pentru rafturi până la 60 cm pentru umerașe.
               </p>
             </div>
-            <div className="border-l-2 border-gray-300 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Configurație internă</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
+            <div className="border-l-2 border-gray-300 py-3 pl-6 sm:py-4 sm:pl-8">
+              <h3 className="mb-1 text-base font-bold md:text-lg">Configurație internă</h3>
+              <p className="text-sm text-gray-500">
                 Bare de haine, rafturi, sertare, compartimente pentru pantofi.
               </p>
             </div>
-            <div className="border-l-2 border-gray-300 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Sistem de închidere</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
+            <div className="border-l-2 border-gray-300 py-3 pl-6 sm:py-4 sm:pl-8">
+              <h3 className="mb-1 text-base font-bold md:text-lg">Sistem de închidere</h3>
+              <p className="text-sm text-gray-500">
                 Uși batante, uși glisante, sau fără uși (deschis).
               </p>
             </div>
-            <div className="border-l-2 border-gray-300 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Finisaje</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
+            <div className="border-l-2 border-gray-300 py-3 pl-6 sm:py-4 sm:pl-8">
+              <h3 className="mb-1 text-base font-bold md:text-lg">Finisaje</h3>
+              <p className="text-sm text-gray-500">
                 Culori PAL, mânere, glisiere, sisteme de închidere lentă.
               </p>
             </div>
-            <div className="border-l-2 border-gray-300 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Forme speciale</h3>
-              <p className="text-sm text-gray-500 sm:text-base">
+            <div className="border-l-2 border-gray-300 py-3 pl-6 sm:py-4 sm:pl-8">
+              <h3 className="mb-1 text-base font-bold md:text-lg">Forme speciale</h3>
+              <p className="text-sm text-gray-500">
                 Tavane înclinate, nișe neregulate, colțuri.
               </p>
             </div>
           </div>
         </section>
 
-        <hr className="border-gray-300" />
+        {/* MID-PAGE IMAGE */}
+        <section className="relative my-8 h-48 sm:my-10 sm:h-56 md:h-64">
+          <Image
+            src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200&q=80"
+            alt="Modern wardrobe interior"
+            fill
+            className="object-cover"
+          />
+        </section>
 
         {/* DE CE DRESSINGUL STANDARD E LIMITATIV */}
-        <section className="py-12 sm:py-16 md:py-24">
-          <div className="mb-8 border-l-2 border-gray-300 pl-6 sm:mb-10 sm:pl-8 md:mb-14 md:pl-10">
-            <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">
+        <section className="py-10 sm:py-12 md:py-16">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-xl font-bold md:text-2xl lg:text-3xl">
               De ce dressingul standard e limitativ
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2">
-            <div className="border-l-2 border-gray-200 bg-gray-100/50 py-6 pl-6 pr-4 sm:py-8 sm:pl-8 md:py-10 md:pl-10">
-              <h3 className="mb-4 text-base font-normal text-gray-400 sm:mb-5 md:mb-6 md:text-lg">
+            <div className="bg-gray-200/60 py-5 pl-6 pr-4 sm:py-6 sm:pl-8">
+              <h3 className="mb-3 text-base font-normal text-gray-400 sm:mb-4 md:text-lg">
                 Dressing standard
               </h3>
-              <ul className="space-y-2 text-sm text-gray-400 sm:space-y-3 sm:text-base md:text-lg">
+              <ul className="space-y-2 text-sm text-gray-400 sm:text-base">
                 <li>Dimensiuni fixe (60, 80, 100 cm)</li>
                 <li>Spațiu pierdut lângă pereți</li>
                 <li>Înălțime standard care nu ajunge la tavan</li>
                 <li>Configurație internă predefinită</li>
               </ul>
             </div>
-            <div className="border-l-2 border-blue-600 bg-white py-6 pl-6 pr-4 sm:py-8 sm:pl-8 md:py-10 md:pl-10">
-              <h3 className="mb-4 text-base font-bold text-gray-900 sm:mb-5 md:mb-6 md:text-lg">
+            <div className="border-l-4 border-blue-600 bg-white py-5 pl-6 pr-4 shadow-lg sm:py-6 sm:pl-8">
+              <h3 className="mb-3 text-base font-bold text-gray-900 sm:mb-4 md:text-lg">
                 Dressing pe dimensiuni
               </h3>
-              <ul className="space-y-2 text-sm font-semibold text-gray-900 sm:space-y-3 sm:text-base md:text-lg">
+              <ul className="space-y-2 text-sm font-semibold text-gray-900 sm:text-base">
                 <li>Lățime exactă pe spațiul tău</li>
                 <li>Folosire completă de la perete la perete</li>
                 <li>Înălțime până la tavan sau sub pantă</li>
@@ -146,8 +161,8 @@ export default function DressingPage() {
               </ul>
             </div>
           </div>
-          <div className="mt-6 border-l-2 border-gray-300 pl-6 sm:mt-8 sm:pl-8 md:mt-10 md:pl-10">
-            <p className="max-w-xl text-sm text-gray-500 sm:text-base md:text-lg">
+          <div className="mt-5 sm:mt-6">
+            <p className="max-w-xl text-sm text-gray-500 sm:text-base">
               Dressingurile standard funcționează în spații standard. Noi existăm pentru restul.
             </p>
           </div>
@@ -156,40 +171,40 @@ export default function DressingPage() {
         <hr className="border-gray-300" />
 
         {/* GREȘELI FRECVENTE */}
-        <section className="py-12 sm:py-16 md:py-24">
-          <div className="border-l-2 border-gray-300 pl-6 sm:pl-8 md:pl-10">
-            <h2 className="mb-6 text-2xl font-bold sm:mb-8 md:mb-10 md:text-3xl lg:text-4xl">
+        <section className="py-10 sm:py-12 md:py-16">
+          <div className="border-l-2 border-gray-300 pl-6 sm:pl-8">
+            <h2 className="mb-5 text-xl font-bold sm:mb-6 md:text-2xl lg:text-3xl">
               Greșeli frecvente
             </h2>
-            <div className="mb-8 space-y-6 sm:mb-10 md:mb-12">
+            <div className="mb-5 space-y-4 sm:mb-6">
               <div>
-                <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Măsurarea doar la bază</h3>
-                <p className="max-w-xl text-sm text-gray-500 sm:text-base">
+                <h3 className="mb-1 text-base font-bold md:text-lg">Măsurarea doar la bază</h3>
+                <p className="max-w-xl text-sm text-gray-500">
                   Tavanele și pereții variază. Măsoară la podea, la mijloc și sus pentru a prinde variațiile.
                 </p>
               </div>
               <div>
-                <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Ignorarea pantei tavanului</h3>
-                <p className="max-w-xl text-sm text-gray-500 sm:text-base">
+                <h3 className="mb-1 text-base font-bold md:text-lg">Ignorarea pantei tavanului</h3>
+                <p className="max-w-xl text-sm text-gray-500">
                   În mansarde, tavanul coboară. Notează înălțimea la fiecare 50 cm pentru a adapta corpurile.
                 </p>
               </div>
               <div>
-                <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Uitarea prizelor și întrerupătoarelor</h3>
-                <p className="max-w-xl text-sm text-gray-500 sm:text-base">
+                <h3 className="mb-1 text-base font-bold md:text-lg">Uitarea prizelor și întrerupătoarelor</h3>
+                <p className="max-w-xl text-sm text-gray-500">
                   Chiar și într-un dressing pot exista prize. Notează poziția exactă pentru decupaje.
                 </p>
               </div>
               <div>
-                <h3 className="mb-1 text-base font-bold sm:mb-2 md:text-lg">Subestimarea adâncimii necesare</h3>
-                <p className="max-w-xl text-sm text-gray-500 sm:text-base">
+                <h3 className="mb-1 text-base font-bold md:text-lg">Subestimarea adâncimii necesare</h3>
+                <p className="max-w-xl text-sm text-gray-500">
                   Pentru haine pe umerașe ai nevoie de minim 55 cm adâncime. Pentru rafturi, 40 cm pot fi suficienți.
                 </p>
               </div>
             </div>
             <a
               href="/masuratori"
-              className="text-sm font-bold text-blue-600 underline decoration-blue-600/40 underline-offset-4 transition-colors hover:text-blue-800 hover:decoration-blue-800 sm:text-base"
+              className="text-sm font-bold text-blue-600 underline decoration-blue-600/40 underline-offset-4 transition-colors hover:text-blue-800 hover:decoration-blue-800"
             >
               Ghid complet de măsurători →
             </a>
@@ -199,45 +214,45 @@ export default function DressingPage() {
         <hr className="border-gray-300" />
 
         {/* CUM DECURGE COMANDA */}
-        <section className="py-12 sm:py-16 md:py-24">
-          <div className="mb-8 border-l-2 border-gray-300 pl-6 sm:mb-10 sm:pl-8 md:mb-14 md:pl-10">
-            <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">
+        <section className="py-10 sm:py-12 md:py-16">
+          <div className="mb-6 sm:mb-8">
+            <h2 className="text-xl font-bold md:text-2xl lg:text-3xl">
               Cum decurge comanda
             </h2>
           </div>
           <div className="space-y-0">
-            <div className="flex border-l-2 border-blue-600 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <span className="mr-4 text-2xl font-extrabold text-blue-600 sm:mr-6 sm:text-3xl md:text-4xl">01</span>
+            <div className="flex border-l-2 border-blue-600 py-3 pl-6 sm:py-4 sm:pl-8">
+              <span className="mr-4 text-xl font-extrabold text-blue-600 sm:mr-5 sm:text-2xl md:text-3xl">01</span>
               <div>
-                <h3 className="text-base font-bold sm:text-lg md:text-xl">Măsori spațiul</h3>
-                <p className="text-sm text-gray-500 sm:text-base">
+                <h3 className="text-base font-bold md:text-lg">Măsori spațiul</h3>
+                <p className="text-sm text-gray-500">
                   Lățime, înălțime, adâncime. Plus panta tavanului dacă e cazul.
                 </p>
               </div>
             </div>
-            <div className="flex border-l-2 border-blue-600 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <span className="mr-4 text-2xl font-extrabold text-blue-600 sm:mr-6 sm:text-3xl md:text-4xl">02</span>
+            <div className="flex border-l-2 border-blue-600 py-3 pl-6 sm:py-4 sm:pl-8">
+              <span className="mr-4 text-xl font-extrabold text-blue-600 sm:mr-5 sm:text-2xl md:text-3xl">02</span>
               <div>
-                <h3 className="text-base font-bold sm:text-lg md:text-xl">Trimiți datele</h3>
-                <p className="text-sm text-gray-500 sm:text-base">
+                <h3 className="text-base font-bold md:text-lg">Trimiți datele</h3>
+                <p className="text-sm text-gray-500">
                   Schiță, poze și ce vrei înăuntru (rafturi, bare, sertare).
                 </p>
               </div>
             </div>
-            <div className="flex border-l-2 border-blue-600 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <span className="mr-4 text-2xl font-extrabold text-blue-600 sm:mr-6 sm:text-3xl md:text-4xl">03</span>
+            <div className="flex border-l-2 border-blue-600 py-3 pl-6 sm:py-4 sm:pl-8">
+              <span className="mr-4 text-xl font-extrabold text-blue-600 sm:mr-5 sm:text-2xl md:text-3xl">03</span>
               <div>
-                <h3 className="text-base font-bold sm:text-lg md:text-xl">Validăm și producem</h3>
-                <p className="text-sm text-gray-500 sm:text-base">
+                <h3 className="text-base font-bold md:text-lg">Validăm și producem</h3>
+                <p className="text-sm text-gray-500">
                   Verificăm măsurătorile, clarificăm detaliile, apoi producem.
                 </p>
               </div>
             </div>
-            <div className="flex border-l-2 border-blue-600 py-4 pl-6 sm:py-5 sm:pl-8 md:py-6 md:pl-10">
-              <span className="mr-4 text-2xl font-extrabold text-blue-600 sm:mr-6 sm:text-3xl md:text-4xl">04</span>
+            <div className="flex border-l-2 border-blue-600 py-3 pl-6 sm:py-4 sm:pl-8">
+              <span className="mr-4 text-xl font-extrabold text-blue-600 sm:mr-5 sm:text-2xl md:text-3xl">04</span>
               <div>
-                <h3 className="text-base font-bold sm:text-lg md:text-xl">Livrare și montaj DIY</h3>
-                <p className="text-sm text-gray-500 sm:text-base">
+                <h3 className="text-base font-bold md:text-lg">Livrare și montaj DIY</h3>
+                <p className="text-sm text-gray-500">
                   Corpuri pre-asamblate, pe palet, cu instrucțiuni.
                 </p>
               </div>
@@ -245,32 +260,35 @@ export default function DressingPage() {
           </div>
         </section>
 
-        <hr className="border-gray-300" />
-
-        {/* FINAL CTA */}
-        <section className="py-14 sm:py-20 md:py-28">
-          <div className="border-l-2 border-blue-600 bg-white py-8 pl-6 pr-6 sm:py-10 sm:pl-8 sm:pr-8 md:py-14 md:pl-10 md:pr-10">
-            <h2 className="mb-4 text-xl font-bold sm:mb-5 md:mb-6 md:text-2xl lg:text-3xl">
+        {/* FINAL CTA with Image */}
+        <section className="relative my-10 flex min-h-[35vh] flex-col justify-center sm:my-12 sm:min-h-[40vh]">
+          <Image
+            src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=80"
+            alt="Modern closet space"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/40" />
+          <div className="relative z-10 px-6 sm:px-8 text-white">
+            <h2 className="mb-3 text-xl font-bold !text-white sm:mb-4 md:text-2xl lg:text-3xl">
               Ai un spațiu pentru dressing?
             </h2>
-            <p className="mb-6 max-w-xl text-base text-gray-600 sm:mb-8 md:text-lg">
+            <p className="mb-5 max-w-xl text-sm !text-gray-100 sm:mb-6 sm:text-base">
               Primul pas e să măsori corect. Ghidul nostru te ajută să eviți greșelile comune.
             </p>
             <a
               href="/masuratori"
-              className="inline-block bg-blue-600 px-8 py-3 text-base font-bold text-white transition-colors hover:bg-blue-700 sm:px-10 sm:py-4 sm:text-lg"
+              className="inline-block bg-blue-600 px-7 py-3 text-sm font-bold !text-white transition-colors hover:bg-blue-500 sm:px-8 sm:py-3.5 sm:text-base"
             >
               Vezi cum măsori corect
             </a>
           </div>
         </section>
 
-        <hr className="border-gray-300" />
-
         {/* REQUEST FORM */}
-        <section className="py-14 sm:py-20 md:py-28">
-          <div className="border-l-2 border-gray-300 pl-6 sm:pl-8 md:pl-10">
-            <h2 className="mb-6 text-xl font-bold sm:mb-8 md:text-2xl lg:text-3xl">
+        <section className="py-10 sm:py-12 md:py-16">
+          <div className="border-l-2 border-gray-300 pl-6 sm:pl-8">
+            <h2 className="mb-5 text-xl font-bold sm:mb-6 md:text-2xl lg:text-3xl">
               Vrei să discutăm despre proiectul tău?
             </h2>
 

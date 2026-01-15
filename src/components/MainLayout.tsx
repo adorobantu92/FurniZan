@@ -10,7 +10,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
       <header className="px-4 py-6">
         <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 md:flex-row">
           <a href="/" className="text-xl font-bold text-gray-900">
-            ZAN Mobilă
+            FurniZan
           </a>
           <nav className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
             <a
@@ -109,14 +109,14 @@ export default function MainLayout({ children }: MainLayoutProps) {
               <h4 className="mb-4 text-sm font-bold text-gray-900">
                 Contact
               </h4>
-              <p className="text-sm text-gray-900">ZAN Mobilă SRL</p>
-              <p className="text-sm text-gray-900">contact@zanmobila.ro</p>
-              <p className="text-sm text-gray-900">București, România</p>
+              <p className="text-sm text-gray-900">FurniZan SRL</p>
+              <p className="text-sm text-gray-900">contact@furnizan.ro</p>
+              <p className="text-sm text-gray-900">Reșița , Caraș-Severin , România</p>
             </div>
           </div>
           <div className="mt-12 pt-8 text-center">
             <p className="text-xs text-gray-900">
-              © 2026 ZAN Mobilă. Toate drepturile rezervate.
+              © 2026 FurniZan. Toate drepturile rezervate.
             </p>
           </div>
         </div>
