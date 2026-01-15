@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
 import Link from "next/link";
+import Image from "next/image";
 import { use } from "react";
 
 interface Product {
@@ -11,6 +12,7 @@ interface Product {
   name: string;
   description: string;
   price: number;
+  image: string;
 }
 
 const products: Product[] = [
@@ -21,6 +23,7 @@ const products: Product[] = [
     description:
       "Blat din PAL melaminat cu finisaj stejar natural. Grosime 28 mm, cant ABS 2 mm pe toate laturile. Dimensiuni la comandă, până la 300 cm lungime și 65 cm adâncime. Include decupaje pentru chiuvetă și plită la cerere.",
     price: 450,
+    image: "/shop/blat-bucatarie-stejar.jpg",
   },
   {
     slug: "corp-inferior-60",
@@ -29,6 +32,7 @@ const products: Product[] = [
     description:
       "Corp de bucătărie inferior cu lățime standard 60 cm. PAL 18 mm, spate HDF 3 mm. Include raft interior reglabil și picioare de 10 cm. Adâncime și înălțime personalizabile. Fără ușă - se comandă separat.",
     price: 280,
+    image: "/shop/corp-inferior-60.jpg",
   },
   {
     slug: "corp-suspendat-80",
@@ -37,6 +41,7 @@ const products: Product[] = [
     description:
       "Corp suspendat pentru bucătărie, lățime 80 cm. PAL 18 mm alb mat, spate HDF. Două rafturi interioare reglabile. Înălțime standard 72 cm sau personalizată. Include șine pentru montaj pe perete.",
     price: 320,
+    image: "/shop/corp-suspendat-80.jpg",
   },
   {
     slug: "sertar-tandembox",
@@ -45,6 +50,7 @@ const products: Product[] = [
     description:
       "Sertar cu sistem Tandembox cu închidere lentă. Capacitate 30 kg. Disponibil în lățimi de la 30 cm la 90 cm. Înălțime sertar 12 cm sau 20 cm. Include fațadă din PAL la alegere.",
     price: 180,
+    image: "/shop/sertar-tandembox.jpg",
   },
   {
     slug: "usa-mdf-vopsit",
@@ -53,6 +59,7 @@ const products: Product[] = [
     description:
       "Ușă din MDF 18 mm vopsit mat. Culoare la alegere din paleta RAL. Dimensiuni personalizate până la 60x240 cm. Include găuri pentru balamale (balamale se comandă separat).",
     price: 220,
+    image: "/shop/usa-mdf-vopsit.jpg",
   },
   {
     slug: "bara-haine-dressing",
@@ -61,6 +68,7 @@ const products: Product[] = [
     description:
       "Bară ovală din aluminiu pentru umerașe. Lungime la comandă până la 150 cm. Include suporturi laterale. Finisaj crom mat sau negru.",
     price: 85,
+    image: "/shop/bara-haine-dressing.jpg",
   },
   {
     slug: "polita-pal-40",
@@ -69,6 +77,7 @@ const products: Product[] = [
     description:
       "Poliță din PAL 18 mm cu cant ABS. Adâncime 40 cm, lungime la comandă până la 120 cm. Culoare din stoc sau la comandă. Include suporturi de poliță.",
     price: 65,
+    image: "/shop/polita-pal-40.jpg",
   },
   {
     slug: "dulap-baie-suspendat",
@@ -77,6 +86,7 @@ const products: Product[] = [
     description:
       "Dulap suspendat pentru baie din PAL hidrofug. Dimensiuni personalizate. Include raft interior și decupaj pentru sifon la cerere. Finisaj rezistent la umiditate.",
     price: 380,
+    image: "/shop/dulap-baie-suspendat.jpg",
   },
 ];
 
@@ -145,6 +155,16 @@ export default function ProductPage({
 
         {/* PRODUCT DETAIL */}
         <section className="py-8 sm:py-12 md:py-16">
+          <div className="mb-8 sm:mb-10">
+            <Image
+              src={product.image}
+              alt={product.name}
+              width={480}
+              height={340}
+              className="bg-gray-100"
+            />
+          </div>
+
           <div className="border-l-2 border-gray-900 pl-6 sm:pl-8 md:pl-10">
             <h1 className="mb-4 text-3xl font-extrabold tracking-tight sm:mb-6 md:text-4xl lg:text-5xl">
               {product.name}

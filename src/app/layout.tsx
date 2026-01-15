@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { CartProvider } from "@/lib/cart-context";
+import { CartIndicator } from "@/components/cart-indicator";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,17 +30,20 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-gray-900`}
       >
-        <header className="border-b border-gray-200">
-          <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16 h-16 flex items-center">
-            <Link
-              href="/"
-              className="text-lg font-semibold tracking-tight text-gray-900 hover:text-blue-700 transition-colors"
-            >
-              FurniZan
-            </Link>
-          </div>
-        </header>
-        <CartProvider>{children}</CartProvider>
+        <CartProvider>
+          <header className="border-b border-gray-200">
+            <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16 h-16 flex items-center justify-between">
+              <Link
+                href="/"
+                className="text-lg font-semibold tracking-tight text-gray-900 hover:text-blue-700 transition-colors"
+              >
+                FurniZan
+              </Link>
+              <CartIndicator />
+            </div>
+          </header>
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

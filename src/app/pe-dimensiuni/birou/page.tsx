@@ -1,4 +1,28 @@
+"use client";
+
+import { useState } from "react";
+
 export default function BirouPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
   return (
     <main className="min-h-screen bg-stone-50 text-gray-900">
       <div className="mx-auto max-w-6xl px-6 sm:px-8 md:px-12 lg:px-16">
@@ -238,6 +262,102 @@ export default function BirouPage() {
             >
               Vezi cum măsori corect
             </a>
+          </div>
+        </section>
+
+        <hr className="border-gray-300" />
+
+        {/* REQUEST FORM */}
+        <section className="py-14 sm:py-20 md:py-28">
+          <div className="border-l-2 border-gray-300 pl-6 sm:pl-8 md:pl-10">
+            <h2 className="mb-6 text-xl font-bold sm:mb-8 md:text-2xl lg:text-3xl">
+              Vrei să discutăm despre proiectul tău?
+            </h2>
+
+            {isSubmitted ? (
+              <p className="text-lg font-medium text-gray-900">
+                Mulțumim! Te vom contacta în curând.
+              </p>
+            ) : (
+              <form onSubmit={handleSubmit} className="max-w-md space-y-6">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
+                    Nume *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:border-blue-600 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:border-blue-600 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
+                    Telefon (opțional)
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:border-blue-600 focus:outline-none"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="mb-2 block text-sm font-medium text-gray-700"
+                  >
+                    Mesaj (opțional)
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full resize-none border border-gray-300 bg-white px-4 py-3 text-base text-gray-900 placeholder-gray-400 focus:border-blue-600 focus:outline-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="bg-blue-600 px-8 py-3 text-base font-bold text-white transition-colors hover:bg-blue-700"
+                >
+                  Trimite
+                </button>
+              </form>
+            )}
           </div>
         </section>
       </div>
